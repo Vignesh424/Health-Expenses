@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Health Expense</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+  <link rel="stylesheet" href="{{url_for('static',filename='bootstrap.min.css')}}">
+</head>
+<body bgcolor="#0081a7">
+  <div class="login">
+   <h1><center , class="title">Healthcare Expense Predictor</center></h1>
+    <form action="{{ url_for('predict')}}" method="post">
+      <label class="title">Age:  </label>
+      <input type="number" name="age" placeholder="Age" required="required">
+      <br>
+      <br>
+      <label class="title">BMI:  </label>
+      <input type="number" name="bmi" placeholder="Bmi" required="required">
+      <br>
+      <br>
+      <label class="title">Children:  </label>
+      <select id="children" name="children", placeholder="children", required="required">
+        <option value="0">Not Applicable</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 & above</option>
+      </select>
+      <br>
+      <br>
+      <label class="title">Sex:  </label>
+      <select id="Sex" name="Sex" placeholder="Sex", required="required">
+        <option value="0">Male</option>
+        <option value="1">Female</option>
+      </select>
+      <br>
+      <br>
+      <label class="title">Smoker:  </label>
+      <select id="Smoker" name="Smoker", placeholder="Smoker", required="required">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+      <br>
+      <br>
+      <label class="title">Region:  </label>
+      <select id="Region" name="Region", placeholder="Region", required="required">
+        <option value="0">Northeast</option>
+        <option value="1">Northwest</option>
+        <option value="2">Southeast</option>
+        <option value="3">Southwest</option>
+      </select>
+      <br>
+      <br>
+      <center><button type="submit" class="button">Predict Medical Charges</button></center>
+    </form>
+    <br>
+    <br>
+    <h2 class="title">
+      <center>
+    {{ prediction_text }}
+        </center
+    </h2>
+  </div>
+</body>
+</html>
